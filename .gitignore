@@ -20,3 +20,7 @@ project/plugins/project/
 
 # IntelliJ specific
 .idea
+
+# ensime related settings
+.ensime
+.ensime_cache/
