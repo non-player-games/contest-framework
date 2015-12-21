@@ -11,6 +11,7 @@ lib_managed/
 src_managed/
 project/boot/
 project/plugins/project/
+.sbtserver.lock
 
 .sbtserver
 
@@ -26,3 +27,7 @@ logs/
 # ensime related settings
 .ensime
 .ensime_cache/
+
+# front end related stuff
+node_modules/
+bower_components/

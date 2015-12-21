@@ -1,10 +1,9 @@
 name := """npg-contest-framework"""
 
-version := "0.0.2"
+version := "0.0.3"
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
-enablePlugins(JavaServerAppPackaging)
 enablePlugins(DockerPlugin)
 
 scalaVersion := "2.11.7"
@@ -18,6 +17,6 @@ libraryDependencies ++= Seq(
 
 routesGenerator := InjectedRoutesGenerator
 
-dockerExposedPorts := Seq(9000)
+dockerExposedPorts := Seq(9000, 9000)
 
 fork in run := true
