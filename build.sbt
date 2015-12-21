@@ -17,6 +17,4 @@ libraryDependencies ++= Seq(
 
 routesGenerator := InjectedRoutesGenerator
 
-dockerExposedPorts := Seq(9000, 9000)
-
 fork in run := true
