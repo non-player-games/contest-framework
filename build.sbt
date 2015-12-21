@@ -1,10 +1,11 @@
-name := """npg-context-framework"""
+name := """npg-contest-framework"""
 
-version := "0.0.1"
+version := "0.0.2"
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
-resolvers += Resolver.url("Typesafe Ivy releases", url("https://repo.typesafe.com/typesafe/ivy-releases"))(Resolver.ivyStylePatterns)
+enablePlugins(JavaServerAppPackaging)
+enablePlugins(DockerPlugin)
 
 scalaVersion := "2.11.7"
 
@@ -16,5 +17,7 @@ libraryDependencies ++= Seq(
 )
 
 routesGenerator := InjectedRoutesGenerator
+
+dockerExposedPorts := Seq(9000)
 
 fork in run := true
