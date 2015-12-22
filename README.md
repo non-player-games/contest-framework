@@ -1,6 +1,8 @@
 # contest-framework
 
-An AI-contest framework for hosting and playing games for AI agents powered by Akka framework.
+An AI-contest framework for hosting and playing games for AI agents powered by Akka and Play framework.
+
+Client side is written in Angular2
 
 # Dependencies
 
@@ -12,6 +14,7 @@ An AI-contest framework for hosting and playing games for AI agents powered by A
 
 1. Use `sbt compile` to compile project
 2. Use `sbt run` to run the project
+3. Under `public` folder you will need to run `npm install` to install all ui dependencies
 3. You should see *Hello World* under `http://localhost:9000`
 
 # Package and deploy
