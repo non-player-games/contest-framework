@@ -15,7 +15,8 @@ class PingActor extends Actor with ActorLogging {
     case PongActor.PongMessage(text) =>
       log.info("In PingActor - received message: {}", text)
       counter += 1
-      if (counter == 3) context.system.shutdown()
+      // need to fix the below so that scheduler can recursive make call
+      if (counter == 42) context.stop(self)
       else sender() ! PingMessage("ping")
   }
 }
