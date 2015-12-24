@@ -2,7 +2,6 @@ package controllers
 
 import javax.inject.Inject
 
-import akka.actor.{Actor, ActorRef, PoisonPill, Props}
 import play.api._
 import play.api.libs.concurrent.Promise
 import play.api.libs.iteratee.{Concurrent, Enumerator, Iteratee}

@@ -24,11 +24,11 @@ class GameEngineActor extends Actor with ActorLogging {
     }
     case GameStart => {
       log.info("Starting game")
-      sender() ! TurnStart
+      sender() ! TurnStart("game state sample")
     }
-    case TurnFinish => {
+    case TurnFinish(botMoves: Map[String, String]) => {
       turn += 1
-      log.info(s"Processing turn $turn")
+      log.info(s"Processing turn $turn with bot moves $botMoves")
       // process turn
       // if game is ended, send sender back GameFinish
 
@@ -38,7 +38,7 @@ class GameEngineActor extends Actor with ActorLogging {
         gameName = ""
         sender() ! GameFinish
       } else {
-        sender() ! TurnStart
+        sender() ! TurnStart(s"game state sample for turn $turn")
       }
     }
   }
