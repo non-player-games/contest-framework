@@ -1,9 +1,9 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"log"
 	"os/exec"
 )
@@ -38,22 +38,33 @@ func main() {
 	io.WriteString(bot1in, "bot_start\n")
 	io.WriteString(bot2in, "bot_start\n")
 
-	io.WriteString(gameIn, "turn_start\n")
+	for {
+		log.Println("New round")
 
-	io.WriteString(bot1in, "turn_start\n")
-	io.WriteString(bot2in, "turn_start\n")
+		io.WriteString(gameIn, "turn_start\n")
 
-	bot1move, _ := ioutil.ReadAll(bot1out)
-	bot2move, _ := ioutil.ReadAll(bot2out)
+		io.WriteString(bot1in, "turn_start\n")
+		io.WriteString(bot2in, "turn_start\n")
 
-	fmt.Printf("Bot responses: %v %v\n", string(bot1move), string(bot2move))
+		bot1scanner := bufio.NewScanner(bot1out)
+		bot2scanner := bufio.NewScanner(bot2out)
+		bot1scanner.Scan()
+		bot1move := bot1scanner.Text()
+		bot2scanner.Scan()
+		bot2move := bot2scanner.Text()
 
-	io.WriteString(gameIn, "turn_end\n")
-	io.WriteString(gameIn, fmt.Sprintf("%v\n%v\n", string(bot1move), string(bot2move)))
+		fmt.Printf("Bot responses: %v %v\n", bot1move, bot2move)
 
-	gameResult, _ := ioutil.ReadAll(gameOut)
+		io.WriteString(gameIn, "turn_end\n")
+		io.WriteString(gameIn, fmt.Sprintf("%v\n%v\n", bot1move, bot2move))
 
-	fmt.Printf("%v\n", string(gameResult))
+		gamescanner := bufio.NewScanner(gameOut)
+
+		for i := 0; i < 2; i++ {
+			gamescanner.Scan()
+			fmt.Printf("%v\n", gamescanner.Text())
+		}
+	}
 }
 
 func setupGame() *exec.Cmd {

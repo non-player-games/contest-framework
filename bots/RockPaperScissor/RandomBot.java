@@ -13,8 +13,7 @@ public class RandomBot {
                     // bot starting warming up
                     break;
                 case "turn_start":
-                    System.out.print(generateRandomMove());
-                    System.exit(0);
+                    System.out.println(generateRandomMove());
                     break;
             }
         }

@@ -84,7 +84,7 @@ public class RockPaperScissor {
                     game.gameEnd();
                     System.out.println("P1: " + game.result);
                     System.out.println("P1: " + game.result.opposite);
-                    System.exit(0);
+                    System.out.flush();
                     break;
             }
         }
