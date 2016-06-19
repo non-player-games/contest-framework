@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"net/http"
 
 	"github.com/labstack/echo"
@@ -14,9 +15,12 @@ func main() {
 	e.Use(middleware.Recover())
 	e.Use(middleware.CORS())
 
+	e.Static("/", "public")
+
 	e.GET("/api/hello", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello, World!\n")
+		return c.String(http.StatusOK, "Hello, Contest Framework!\n")
 	})
 
+	log.Println("Contest Framework starting at port 9000")
 	e.Run(standard.New(":9000"))
 }
