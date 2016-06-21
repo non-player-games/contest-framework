@@ -12,6 +12,12 @@ Client side is written in Angular2.
 
 # Get Started
 
+## Together
+
+1. Go to `public` folder and run `npm run tsc:w` to watch for TypeScript code changes
+2. Go back to root folder and run `go run main.go`
+3. Go to http://localhost:9000 and you should see site running
+
 ## Client side
 
 1. Go to `public` folder
