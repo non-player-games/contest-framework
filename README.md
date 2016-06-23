@@ -14,19 +14,7 @@ Client side is written in Angular2.
 
 ## Together
 
-1. Go to `public` folder and run `npm run tsc:w` to watch for TypeScript code changes
-2. Go back to root folder and run `go run main.go`
-3. Go to http://localhost:9000 and you should see site running
-
-## Client side
-
-1. Go to `public` folder
-2. `npm install`
-3. `npm start`
-3. You should see the site running
-
-## Server side
-
-1. Use `docker build -t contest-framework .` to build
-2. Use `docker run contest-framework` to run the project
-3. You should see *Hello World* under `http://localhost:9000`
+1. Go to `public` folder and run `npm install && npm run tsc:w` to watch for TypeScript code changes
+2. Install required dependencies for go lang `go get github.com/labstack/echo/...`
+3. Go back to root folder and run `go run main.go`
+4. Go to http://localhost:9000 and you should see site running
