@@ -1,0 +1,28 @@
+version: "2"
+
+services:
+  web:
+    build: .
+    ports:
+      - "9000:80"
+    depends_on:
+      - mongo
+    links:
+      - mongo
+    networks:
+      - front-tier
+      - back-tier
+
+  mongo:
+    image: mongo:latest
+    volumes:
+      - "db-data:/data/db"
+    networks:
+      - back-tier
+
+volumes:
+  db-data:
+
+networks:
+  front-tier:
+  back-tier:
