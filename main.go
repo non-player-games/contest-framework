@@ -19,7 +19,7 @@ type User struct {
 }
 
 func main() {
-	session, err := mgo.Dial("mongo")
+	session, err := mgo.Dial("mongodb://mongo.contestframework_back-tier")
 	if err != nil {
 		panic(err)
 	}

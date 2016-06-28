@@ -4,19 +4,20 @@ services:
   web:
     build: .
     ports:
-      - "9000:80"
+      - 9000:9000
     depends_on:
       - mongo
-    links:
-      - mongo
     networks:
-      - front-tier
       - back-tier
+      - front-tier
 
   mongo:
-    image: mongo:latest
+    container_name: mongo
+    image: mongo
+    ports:
+      - 27017:27017
     volumes:
-      - "db-data:/data/db"
+      - db-data:/data/db
     networks:
       - back-tier
 
