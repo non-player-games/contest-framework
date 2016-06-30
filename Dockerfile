@@ -13,7 +13,7 @@ COPY main.go /usr/src/app
 
 WORKDIR /usr/src/app/public
 
-RUN npm install && npm run tsc
+RUN npm install && npm run typings && npm run tsc
 
 WORKDIR /usr/src/app
 
