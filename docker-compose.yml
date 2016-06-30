@@ -11,6 +11,17 @@ services:
       - back-tier
       - front-tier
 
+  game-engine:
+    build: ./game-engine/.
+    ports:
+      - 8080:8080
+    env_file:
+      - ./game-engine/.env
+    depends_on:
+      - mongo
+    networks:
+      - back-tier
+
   mongo:
     container_name: mongo
     image: mongo
