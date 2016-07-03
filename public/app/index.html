@@ -4,12 +4,12 @@ locked at the top -->
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
       <!-- Title -->
-      <span class="mdl-layout-title">Non-Player-Games</span>
+      <a class="mdl-layout-title" [routerLink]="['/']">Non-Player-Games</a>
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation -->
       <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="">Get Started</a>
+        <a class="mdl-navigation__link" [routerLink]="['/introduction']">Get Started</a>
         <a class="mdl-navigation__link" href="">Join Contest</a>
         <a class="mdl-navigation__link" href="">Docs</a>
       </nav>
@@ -18,7 +18,7 @@ locked at the top -->
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">Non-Player-Games</span>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">Get Started</a>
+      <a class="mdl-navigation__link" [routerLink]="['/introduction']">Get Started</a>
       <a class="mdl-navigation__link" href="">Join Contest</a>
       <a class="mdl-navigation__link" href="">Docs</a>
     </nav>

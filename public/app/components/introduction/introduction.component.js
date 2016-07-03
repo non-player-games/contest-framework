@@ -9,25 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var HomepageComponent = (function () {
-    function HomepageComponent(element) {
-        this.element = element;
+var IntroductionComponent = (function () {
+    function IntroductionComponent() {
     }
-    HomepageComponent.prototype.ngAfterViewInit = function () {
-        var self = this;
-        componentHandler
-            .upgradeElements(self.element.nativeElement.querySelectorAll('.mdl-button'));
-    };
-    HomepageComponent = __decorate([
+    IntroductionComponent = __decorate([
         core_1.Component({
-            selector: 'homepage',
-            templateUrl: 'app/components/homepage/homepage.html',
-            directives: [router_1.ROUTER_DIRECTIVES]
+            selector: 'introduction',
+            templateUrl: 'app/components/introduction/introduction.html'
         }), 
-        __metadata('design:paramtypes', [core_1.ElementRef])
-    ], HomepageComponent);
-    return HomepageComponent;
+        __metadata('design:paramtypes', [])
+    ], IntroductionComponent);
+    return IntroductionComponent;
 }());
-exports.HomepageComponent = HomepageComponent;
-//# sourceMappingURL=homepage.component.js.map
+exports.IntroductionComponent = IntroductionComponent;
+//# sourceMappingURL=introduction.component.js.map
