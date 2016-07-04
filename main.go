@@ -17,6 +17,7 @@ import (
 type Player struct {
 	Name  string
 	Token string
+	Email string
 }
 
 func randToken() string {
@@ -65,7 +66,7 @@ func main() {
 		return c.String(http.StatusOK, "Hello, Contest Framework!\n")
 	})
 
-	e.POST("/api/signup", signup(players))
+	e.POST("/api/v1/user/signup", signup(players))
 
 	log.Println("Contest Framework starting at port 9000")
 	e.Run(standard.New(":9000"))
