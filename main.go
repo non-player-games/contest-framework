@@ -5,13 +5,10 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"os"
 
 	"gopkg.in/mgo.v2"
 
 	"github.com/labstack/echo"
-	"github.com/labstack/echo/engine/standard"
-	"github.com/labstack/echo/middleware"
 
 	"github.com/non-player-games/manager"
 )
@@ -47,31 +44,31 @@ func signup(player *mgo.Collection) echo.HandlerFunc {
 }
 
 func main() {
-	manager.Hello()
+	manager.RunGame("http://localhost:8080")
 
-	mongoAddr := os.Getenv("MONGO_CONNECTION")
-	mongoDbName := os.Getenv("MONGO_DB_NAME")
-	session, err := mgo.Dial(mongoAddr)
-	if err != nil {
-		panic(err)
-	}
-	defer session.Close()
-
-	players := session.DB(mongoDbName).C("players")
-
-	e := echo.New()
-	e.Use(middleware.Logger())
-	e.Use(middleware.Recover())
-	e.Use(middleware.CORS())
-
-	e.Static("/", "public")
-
-	e.GET("/api/hello", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello, Contest Framework!\n")
-	})
-
-	e.POST("/api/v1/user/signup", signup(players))
-
-	log.Println("Contest Framework starting at port 9000")
-	e.Run(standard.New(":9000"))
+	// mongoAddr := os.Getenv("MONGO_CONNECTION")
+	// mongoDbName := os.Getenv("MONGO_DB_NAME")
+	// session, err := mgo.Dial(mongoAddr)
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// defer session.Close()
+	//
+	// players := session.DB(mongoDbName).C("players")
+	//
+	// e := echo.New()
+	// e.Use(middleware.Logger())
+	// e.Use(middleware.Recover())
+	// e.Use(middleware.CORS())
+	//
+	// e.Static("/", "public")
+	//
+	// e.GET("/api/hello", func(c echo.Context) error {
+	// 	return c.String(http.StatusOK, "Hello, Contest Framework!\n")
+	// })
+	//
+	// e.POST("/api/v1/user/signup", signup(players))
+	//
+	// log.Println("Contest Framework starting at port 9000")
+	// e.Run(standard.New(":9000"))
 }
